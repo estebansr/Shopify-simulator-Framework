@@ -1,59 +1,192 @@
-/*!**************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/index.scss ***!
-  \**************************************************************************************************************/
+/*!******************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/scss/index.scss ***!
+  \******************************************************************************************************************************************/
 /* Reset CSS */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  ul, ol {
+    list-style-type: none;
+  }
+  #root,
+  #__next {
+    isolation: isolate;
+  }
 }
-
-html,
-body {
-  height: 100%;
-  width: 100%;
-  font-family: sans-serif;
+@font-face {
+  font-family: "Aeonik";
+  src: url("./fonts/aeonik-regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
-
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+@font-face {
+  font-family: "Aeonik";
+  src: url("./fonts/aeonik-bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
+@font-face {
+  font-family: "Countach";
+  src: url("./fonts/countach-bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
+@layer layout {
+  .header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @media (min-width: 991px) {
+    .header__container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .header__section {
+    display: flex;
+    align-items: center;
+  }
+  .header__section:nth-child(1) {
+    gap: 10px;
+  }
+  .header__section:nth-child(2) {
+    justify-content: center;
+  }
+  @media (max-width: 990px) {
+    .header__section:nth-child(2) {
+      display: none;
+    }
+  }
+  .header__section:nth-child(3) {
+    justify-content: flex-end;
+  }
+  @media (max-width: 639px) {
+    .header__logo {
+      height: 30px;
+      width: 83px;
+    }
+  }
+  .header-payment {
+    align-items: center;
+    background-color: #151515;
+    border-radius: 30px;
+    border: 1px solid #762bfb;
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+  }
+  .header-payment__text {
+    color: #fff;
+    font-size: 12px;
+  }
+  .header-payment__list {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+  }
+  .header-anchor {
+    margin-right: 10px;
+  }
+  @media (max-width: 990px) {
+    .header-anchor {
+      display: none;
+    }
+  }
+  .header-anchor__list {
+    display: flex;
+    gap: 10px;
+  }
+  .header-anchor__link {
+    color: #fff;
+    font-size: 14px;
+  }
+  .hamburguer {
+    height: 32px;
+    width: 32px;
+  }
+  @media (min-width: 991px) {
+    .hamburguer {
+      display: none;
+    }
+  }
 }
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
+@layer layout {
+  .container-limit {
+    max-width: 1921px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  @media (min-width: 991px) {
+    .container-limit {
+      padding: 0 30px;
+    }
+  }
 }
-
-a {
-  text-decoration: none;
-  color: inherit;
+@layer components {
+  .cart {
+    border: none;
+    background-color: transparent;
+  }
+  .cart {
+    background-color: #762bfb;
+    border-radius: 4px;
+    padding: 8px;
+  }
 }
-
-#root,
-#__next {
-  isolation: isolate;
+@layer reset, components, layout;
+@layer reset {
+  body {
+    font-family: "Aeonik", sans-serif;
+    background-color: #1c1c1c;
+  }
 }

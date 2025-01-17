@@ -1,0 +1,19 @@
+@use "colors" as *;
+@use "sass:map";
+
+@function color($category, $shade: null) {
+    @if map.has-key($colors, $category) {
+        $color-map: map.get($colors, $category);
+
+        @if $shade !=null and map.has-key($color-map, $shade) {
+            @return map.get($color-map, $shade);
+        }
+
+        @else if $shade ==null {
+            @return $color-map; // Devuelve todo el mapa de esa categoría
+        }
+    }
+
+    @warn "El color o tono solicitado no existe.";
+    @return null;
+}

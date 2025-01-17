@@ -1,0 +1,95 @@
+@use "../variables";
+
+@layer layout {
+    .header {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            @media (min-width: 991px) {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        &__section {
+            display: flex;
+            align-items: center;
+
+            &:nth-child(1) {
+                gap: 10px;
+            }
+
+            &:nth-child(2) {
+                justify-content: center;
+
+                @media (max-width: 990px) {
+                    display: none;
+                }
+            }
+
+            &:nth-child(3) {
+                justify-content: flex-end;
+            }
+        }
+
+        &__logo {
+            @media (max-width: 639px) {
+                height: 30px;
+                width: 83px;
+            }
+        }
+    }
+
+    .header-payment {
+        align-items: center;
+        background-color: #151515;
+        border-radius: 30px;
+        border: 1px solid variables.color(secondary, 500);
+        display: flex;
+        gap: 10px;
+        padding: 10px 20px;
+
+        &__text {
+            color: #fff;
+            font-size: 12px;
+        }
+
+        &__list {
+            flex: 1;
+            display: flex;
+            gap: 10px;
+        }
+    }
+
+    .header-anchor {
+        margin-right: 10px;
+
+        @media (max-width: 990px) {
+            display: none;
+        }
+
+        &__list {
+            display: flex;
+            gap: 10px;
+        }
+
+        &__link {
+            color: #fff;
+            font-size: 14px;
+        }
+    }
+
+    .hamburguer {
+        height: 32px;
+        width: 32px;
+
+        @media (min-width: 991px) {
+            display: none;
+        }
+    }
+}

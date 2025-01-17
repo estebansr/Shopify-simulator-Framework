@@ -1,5 +1,18 @@
 {
   "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_text": "MyShopify",
+        "links": [
+          { "label": "Bitcoin", "url": "bitcoin" },
+          { "label": "Ethereum", "url": "ethereum" },
+          { "label": "Litecoin", "url": "litecoin" },
+          { "label": "Dogecoin", "url": "dogecoin" },
+          { "label": "Usdc", "url": "usdc" }
+        ]
+      }
+    },
     "featured-products": {
       "type": "featured-products",
       "settings": {

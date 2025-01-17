@@ -1,0 +1,15 @@
+@use "../variables";
+
+@layer components {
+    %button {
+        border: none;
+        background-color: transparent;
+    }
+
+    .cart {
+        @extend %button;
+        background-color: variables.color(secondary, 500);
+        border-radius: 4px;
+        padding: 8px;
+    }
+}
