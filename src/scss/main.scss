@@ -8,6 +8,6 @@
 @layer reset {
     body {
         font-family: variables.$font-aeonik;
-        background-color: variables.color(primary, 900);
+        background: variables.color(primary, 900) url("./assets/texture.png") repeat;
     }
 }
