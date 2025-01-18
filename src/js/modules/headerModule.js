@@ -1,17 +1,20 @@
 import { DOM } from "../utils/dom.js";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
 
-export class HeaderCollapse extends DOM {
-    menu;
+export class HeaderModule extends DOM {
+    header;
     config;
     isCollapsed;
 
     constructor(target, config) {
         super();
 
-        this.menu = this.getTarget(target);
-
+        this.header = this.getTarget(target);
         this.config = { activeClass: 'active', ...config };
         this.isCollapsed = false;
+
+        this.animate();
 
         if (!config.toggler) return;
         const togglerTarget = this.getTarget(config.toggler);
@@ -22,15 +25,31 @@ export class HeaderCollapse extends DOM {
         })
     }
 
+    animate() {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to('.header__fixed', {
+            backdropFilter: "blur(10px)",
+            backgroundColor: '#73737373',
+            scrollTrigger: {
+                start: '25px top',
+                trigger: 'body',
+                end: 'bottom top',
+                endTrigger: this.header,
+                scrub: true
+            }
+        })
+    }
+
     open() {
-        if (!this.menu) return;
+        if (!this.header) return;
         this.isCollapsed = true;
-        this.menu.classList.add(this.config.activeClass);
+        this.header.classList.add(this.config.activeClass);
     }
 
     close() {
-        if (!this.menu) return;
+        if (!this.header) return;
         this.isCollapsed = false;
-        this.menu.classList.remove(this.config.activeClass);
+        this.header.classList.remove(this.config.activeClass);
     }
 }

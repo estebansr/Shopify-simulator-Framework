@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.2",
+    "gsap": "^3.12.7",
     "liquidjs": "^10.20.1"
   },
   "devDependencies": {
