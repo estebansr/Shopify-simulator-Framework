@@ -7,7 +7,6 @@
         &__container {
             display: flex;
             overflow: hidden;
-            gap: 10px;
             @include variables.spacing(padding, sm);
         }
 
@@ -15,6 +14,8 @@
             display: grid;
             grid-template-columns: 17px auto;
             gap: 10px;
+            padding-right: 10px;
+            animation: translate-xn 6s linear infinite;
         }
 
         &__text {

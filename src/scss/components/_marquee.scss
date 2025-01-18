@@ -4,14 +4,9 @@
     .marquee {
         &__container {
             overflow: hidden;
-            gap: 10px;
             @include variables.spacing(padding-top, sm);
             @include variables.spacing(padding-bottom, sm);
             @include variables.flex($align: center);
-
-            @include variables.respond-to(lg, min) {
-                gap: 20px;
-            }
         }
 
         &__item {
@@ -19,10 +14,13 @@
             align-items: center;
             grid-template-columns: 80px auto;
             gap: 10px;
+            animation: translate-xn 12s linear infinite;
+            padding-right: 10px;
 
             @include variables.respond-to(lg, min) {
                 grid-template-columns: 60px auto;
                 gap: 20px;
+                padding-right: 20px;
             }
         }
 
