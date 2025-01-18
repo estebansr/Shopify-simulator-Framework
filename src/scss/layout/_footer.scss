@@ -201,11 +201,9 @@
             }
 
             img {
-                top: 0;
-                bottom: 0;
                 right: 10px;
                 margin: auto;
-                position: absolute;
+                @include variables.position($top: 0, $bottom: 0);
             }
         }
     }

@@ -22,10 +22,8 @@
         }
 
         &__button {
-            position: absolute;
             z-index: 1;
-            bottom: 30px;
-            left: 30px;
+            @include variables.position($bottom: 30px, $left: 30px);
 
             @include variables.respond-to(md, max) {
                 display: none;

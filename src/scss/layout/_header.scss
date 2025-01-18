@@ -37,13 +37,11 @@
         @include variables.respond-to(lg, max) {
             &::before {
                 content: "";
-                position: fixed;
-                top: 0;
-                left: 0;
                 height: 100%;
                 width: 100%;
                 z-index: -1;
                 pointer-events: none;
+                @include variables.position($type: fixed, $top: 0, $left: 0);
 
                 transition: background-color 0.5s;
             }
@@ -106,9 +104,7 @@
             justify-content: center;
             width: 100%;
 
-            position: fixed;
-            top: 72px;
-            bottom: 0;
+            @include variables.position($type: fixed, $top: 106px, $bottom: 0);
 
             transition: transform 0.5s;
 
@@ -165,11 +161,9 @@
         border-radius: 10px;
         display: none;
         gap: 10px;
-        @include variables.spacing(padding, sm);
-        position: absolute;
-        top: 100%;
-        right: 0;
         z-index: 1;
+        @include variables.spacing(padding, sm);
+        @include variables.position($top: 100%, $right: 0);
 
         @include variables.respond-to(lg, max) {
             @include variables.flex($align: center, $direction: column);

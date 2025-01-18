@@ -127,13 +127,13 @@
   @media (max-width: 990px) {
     .header::before {
       content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
       height: 100%;
       width: 100%;
       z-index: -1;
       pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
       transition: background-color 0.5s;
     }
   }
@@ -190,7 +190,7 @@
     justify-content: center;
     width: 100%;
     position: fixed;
-    top: 72px;
+    top: 106px;
     bottom: 0;
     transition: transform 0.5s;
   }
@@ -246,11 +246,11 @@
     border-radius: 10px;
     display: none;
     gap: 10px;
+    z-index: 1;
     padding: 8px;
     position: absolute;
     top: 100%;
     right: 0;
-    z-index: 1;
   }
   @media (max-width: 990px) {
     .header-dropdown {
@@ -460,11 +460,11 @@
     width: 100%;
   }
   .newsletter__input img {
-    top: 0;
-    bottom: 0;
     right: 10px;
     margin: auto;
     position: absolute;
+    top: 0;
+    bottom: 0;
   }
   @media (min-width: 991px) {
     .social-networks {
@@ -666,8 +666,8 @@
     min-height: 450px;
   }
   .banner__button {
-    position: absolute;
     z-index: 1;
+    position: absolute;
     bottom: 30px;
     left: 30px;
   }
