@@ -636,6 +636,7 @@
     display: inline-block;
     overflow: hidden;
     grid-area: auto/1/auto/span 2;
+    position: relative;
     height: max-content;
     width: max-content;
   }
@@ -661,6 +662,28 @@
   .product-card__price {
     color: #fff;
     font-size: 14px;
+  }
+  .product-card__tags {
+    gap: 8px;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+@layer components {
+  .tag {
+    cursor: default;
+    color: #fff;
+    background-color: #8e45fb;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
   }
 }
 @layer pages {

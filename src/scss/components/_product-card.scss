@@ -20,6 +20,7 @@
             display: inline-block;
             overflow: hidden;
             grid-area: auto / 1 / auto / span 2;
+            position: relative;
             height: max-content;
             width: max-content;
         }
@@ -48,6 +49,14 @@
         &__price {
             color: #fff;
             font-size: 14px;
+        }
+
+        &__tags {
+            gap: 8px;
+            z-index: 1;
+            @include variables.flex($wrap: wrap);
+            @include variables.spacing(padding, sm);
+            @include variables.position($bottom: 0, $left: 0, $right: 0);
         }
     }
 }

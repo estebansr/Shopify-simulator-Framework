@@ -2,6 +2,13 @@
   <figure class="product-card__figure">
     <img class="product-card__image" src="/assets/{{product.image}}" alt="{{product.title}}" title="{{product.title}}"
       width="280" height="380" loading="lazy">
+    {% if product.tags %}
+    <ul class="product-card__tags">
+      {% for tag in product.tags %}
+      <li class="tag">{{ tag }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
   </figure>
   <article class="product-card__body">
     <h3 class="product-card__name">{{ product.title }}</h3>
@@ -10,11 +17,4 @@
   <button class="cart cart--rounded">
     <img class="cart__icon" src="/assets/cart.svg" alt="Carrito" title="Carrito" width="26" height="26" loading="lazy">
   </button>
-  {% comment %} {% if product.tags %}
-  <ul>
-    {% for tag in product.tags %}
-    <li>{{ tag }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %} {% endcomment %}
 </div>
