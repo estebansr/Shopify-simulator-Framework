@@ -12,7 +12,7 @@
     "title": "Shuffle Hoodie Purple",
     "price": 59.99,
     "tags": ["clothing", "hoodie"],
-    "image": "shuffle_crewneck_grey.avif",
+    "image": "shuffle_hoodie_purple.avif",
     "description": "A comfortable purple hoodie for everyday wear."
   },
   {
@@ -60,7 +60,7 @@
     "title": "Shuffle T-Shirt Black",
     "price": 25.99,
     "tags": ["clothing", "t-shirt"],
-    "image": "shuffle_t_shirt_black.avif",
+    "image": "shuffle_t-shirt_black.avif",
     "description": "A stylish black t-shirt for casual wear."
   },
   {

@@ -1,0 +1,47 @@
+@use "../variables";
+
+@layer components {
+    .product-card {
+        display: inline-grid;
+        grid-template-columns: 1fr auto;
+        gap: 20px 10px;
+        width: max-content;
+
+        &__figure {
+            cursor: pointer;
+            border: 3px solid variables.color(secondary, 500);
+            border-radius: 4px;
+            display: inline-block;
+            overflow: hidden;
+            grid-area: auto / 1 / auto / span 2;
+            height: max-content;
+            width: max-content;
+        }
+
+        &__figure:hover &__image {
+            transform: scale(1.1);
+        }
+
+        &__image {
+            display: block;
+            object-fit: cover;
+            transition: transform .5s ease;
+
+            @media (max-width: 990px) {
+                height: 285px;
+                width: 220px;
+            }
+        }
+
+        &__name {
+            color: #fff;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        &__price {
+            color: #fff;
+            font-size: 14px;
+        }
+    }
+}
