@@ -1,0 +1,13 @@
+<nav class="header-payment">
+    <span class="header-payment__text">We Accept</span>
+    <ul class="header-payment__list">
+        {% for link in settings['header'].settings.links %}
+        <li class="header-payment__item">
+            <a class="header-payment__link" href="">
+                <img src="/assets/{{link.url}}.svg" alt="{{link.label}}" title="{{link.label}}" width="26" height="26"
+                    loading="lazy">
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

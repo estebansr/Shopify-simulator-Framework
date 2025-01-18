@@ -1,43 +1,32 @@
 <header class="header">
-    <div class="header__container container-limit">
-        <section class="header__section">
-            <svg class="hamburguer" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.13843 15.5H37.8616" stroke="#762BFB" stroke-width="3" stroke-linecap="round"/>
-                <path d="M4.13843 27.5H37.8616" stroke="#762BFB" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-            <picture>
-                <source media="(min-width: 640px)" srcset="./assets/logo-desk.svg">
-                <img class="header__logo" src="./assets/logo-mob.svg" alt="Shuffle Store" title="Shuffle Store" width="283" height="35" loading="lazy">
-            </picture>
+    <div class="header__container">
+        <section class="header__fixed container-limit">
+            <section class="header__section">
+                <svg class="hamburguer" width="42" height="42" viewBox="0 0 42 42" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.13843 15.5H37.8616" stroke="#762BFB" stroke-width="3" stroke-linecap="round" />
+                    <path d="M4.13843 27.5H37.8616" stroke="#762BFB" stroke-width="3" stroke-linecap="round" />
+                </svg>
+                <picture>
+                    <source media="(min-width: 640px)" srcset="./assets/logo-desk.svg">
+                    <img class="header__logo" src="./assets/logo-mob.svg" alt="Shuffle Store" title="Shuffle Store"
+                        width="283" height="35" loading="lazy">
+                </picture>
+            </section>
+            <section class="header__section">
+                {% include 'header-payment.liquid' %}
+            </section>
+            <section class="header__section">
+                {% include 'header-anchor.liquid' %}
+                <button class="cart">
+                    <img class="cart__icon" src="/assets/cart.svg" alt="Carrito" title="Carrito" width="26" height="26"
+                        loading="lazy">
+                </button>
+            </section>
         </section>
-        <section class="header__section">
-            <nav class="header-payment">
-                <span class="header-payment__text">We Accept</span>
-                <ul class="header-payment__list">
-                    {% for link in settings['header'].settings.links %}
-                        <li class="header-payment__item">
-                            <a class="header-payment__link" href="">
-                                <img src="/assets/{{link.url}}.svg" alt="{{link.label}}" title="{{link.label}}" width="26" height="26" loading="lazy">
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </nav>
-        </section>
-        <section class="header__section">
-            <nav class="header-anchor">
-                <ul class="header-anchor__list">
-                    <li class="header-anchor__item">
-                        <a class="header-anchor__link" href="">All products</a>
-                    </li>
-                    <li class="header-anchor__item">
-                        <a class="header-anchor__link" href="">Collections</a>
-                    </li>
-                </ul>
-            </nav>
-            <button class="cart">
-                <img class="cart__icon" src="/assets/cart.svg" alt="Carrito" title="Carrito" width="26" height="26" loading="lazy">
-            </button>
+        <section class="header__dropdown container-limit">
+            {% include 'header-anchor.liquid' %}
+            {% include 'header-payment.liquid' %}
         </section>
     </div>
 </header>
