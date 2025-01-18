@@ -5,11 +5,11 @@
       "settings": {
         "logo_text": "MyShopify",
         "links": [
-          { "label": "Bitcoin", "url": "bitcoin" },
-          { "label": "Ethereum", "url": "ethereum" },
-          { "label": "Litecoin", "url": "litecoin" },
-          { "label": "Dogecoin", "url": "dogecoin" },
-          { "label": "Usdc", "url": "usdc" }
+          { "label": "Bitcoin", "image": "bitcoin.svg" },
+          { "label": "Ethereum", "image": "ethereum.svg" },
+          { "label": "Litecoin", "image": "litecoin.svg" },
+          { "label": "Dogecoin", "image": "dogecoin.svg" },
+          { "label": "Usdc", "image": "usdc.svg" }
         ]
       }
     },
@@ -32,7 +32,9 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "logo_text": "MyShopify",
+        "logo": "logo-footer.svg",
+        "text_copy": "© 2024, Shuffle.store Operated by Studio Plaid. Need help?",
+        "text_email": "Email support@shuffle.store",
         "links": [
           { "label": "Home", "url": "/" },
           { "label": "Cart", "url": "/cart" },
@@ -41,6 +43,11 @@
           { "label": "Refund Policy", "url": "/refund-policy" },
           { "label": "Privacy Policy", "url": "/privacy-policy" },
           { "label": "Terms of Service", "url": "/terms-of-service" }
+        ],
+        "social_networks": [
+          { "label": "Facebook", "url": "https://www.facebook.com" },
+          { "label": "X(Twitter)", "url": "https://www.twitter.com" },
+          { "label": "Instagram", "url": "https://www.instagram.com" }
         ]
       }
     }

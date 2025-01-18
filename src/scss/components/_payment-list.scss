@@ -1,0 +1,11 @@
+@layer components {
+    .payment-list {
+        flex: 1;
+        display: flex;
+        gap: 10px;
+
+        &__image {
+            max-width: none;
+        }
+    }
+}

@@ -3,12 +3,14 @@
 @layer layout {
     .header {
         height: 72px;
+        position: relative;
+        z-index: 0;
 
         @media (min-width:991px) {
             height: 78px;
         }
 
-        &--active &__container {
+        &--active::before {
             background-color: variables.color(secondary, 500);
         }
 
@@ -32,6 +34,19 @@
             transform: translateX(-100%);
         }
 
+        &::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            pointer-events: none;
+
+            transition: background-color 0.5s;
+        }
+
         &__container {
             position: fixed;
             width: 100%;
@@ -39,8 +54,6 @@
             @media (max-width: 990px) {
                 display: grid;
                 grid-template-rows: auto 1fr;
-                height: 100%;
-                transition: background-color 0.5s;
             }
         }
 
@@ -100,6 +113,10 @@
             justify-content: center;
             width: 100%;
 
+            position: fixed;
+            top: 72px;
+            bottom: 0;
+
             transition: transform 0.5s;
 
             @media (min-width: 991px) {
@@ -120,12 +137,6 @@
         &__text {
             color: #fff;
             font-size: 12px;
-        }
-
-        &__list {
-            flex: 1;
-            display: flex;
-            gap: 10px;
         }
     }
 

@@ -2,10 +2,10 @@
     .container-limit {
         max-width: 1921px;
         margin: 0 auto;
-        padding: 0 15px;
-    
+        padding-inline: 15px;
+
         @media (min-width: 991px) {
-            padding: 0 30px;
+            padding-inline: 30px;
         }
     }
 }

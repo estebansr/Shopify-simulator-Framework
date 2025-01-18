@@ -1,0 +1,76 @@
+<header class="footer">
+    <div class="footer__container container-limit">
+        <section class="footer__section">
+            <nav class="footer-mapsite">
+                <ul class="footer-mapsite__list">
+                    {% for link in settings['footer'].settings.links %}
+                        {% assign text = link.label |  downcase %}
+                        {% if not text contains 'terms' and not text contains 'policy' %}
+                            <li class="footer-mapsite__item">
+                                <a class="footer-mapsite__link" href="">{{link.label |  upcase}}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+
+            <nav class="footer-legal">
+                <ul class="footer-legal__list">
+                    {% for link in settings['footer'].settings.links %}
+                        {% assign text = link.label |  downcase %}
+                        {% if text contains 'terms' or text contains 'policy' %}
+                            <li class="footer-legal__item">
+                                <a class="footer-legal__link" href="">{{link.label |  upcase}}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+
+            <section class="footer-payment">
+                <span class="footer-payment__text">We accept all major cards, PayPal & crypto</span>
+                <ul class="payment-list">
+                    {% for link in settings['header'].settings.links %}
+                    <li>
+                        <a href="">
+                            <img class="payment-list__image" src="/assets/{{link.image}}" alt="{{link.label}}" title="{{link.label}}" width="26" height="26"
+                                loading="lazy">
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </section>
+        <section class="footer__section">
+            <form class="newsletter" action="">
+                <fieldset class="newsletter__field">
+                    <label for="" class="newsletter__label">Subscribe and receive drop notifications</label>
+                    <div class="newsletter__input">
+                        <input type="email" maxlength="128" placeholder="Enter Email">
+                        <img src="/assets/newsletter.svg" alt="" title="" width="24" height="24" loading="lazy">
+                    </div>
+                </fieldset>
+            </form>
+            <nav class="social-networks">
+                <ul class="social-networks__list">
+                    {% for link in settings['footer'].settings.social_networks %}
+                        <li class="social-networks__item">
+                            <a class="social-networks__link" href="{{link.url}}">{{link.label |  upcase}}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </section>
+        <section class="footer__section">
+            <div class="footer-brand">
+                <section>
+                    <img src="/assets/{{settings['footer'].settings.logo}}" alt="Shuffle Store" title="Shuffle Store" width="164" height="80" loading="lazy">
+                </section>
+                <section>
+                    <p class="footer-brand__text">{{settings['footer'].settings.text_copy}}</p>
+                    <p class="footer-brand__text">{{settings['footer'].settings.text_email}}</p>
+                </section>
+            </div>
+        </section>
+    </div>
+</header>

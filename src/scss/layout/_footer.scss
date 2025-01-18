@@ -1,0 +1,212 @@
+@use "../variables";
+
+@layer layout {
+    .footer {
+        &__container {
+            padding-top: 15px;
+            padding-bottom: 15px;
+
+            @media (min-width:991px) {
+                display: grid;
+                align-items: center;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (min-width: 1201px) {
+                grid-template-columns: 1fr 3fr 1fr;
+                gap: 30px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+        }
+
+        &__section {
+            &:nth-child(1) {
+                @media (min-width: 991px) {
+                    grid-area: auto / 1 / auto / span 2;
+                }
+
+                @media (min-width: 1201px) {
+                    grid-area: auto / 2 / auto / span 1;
+                }
+            }
+
+            &:nth-child(2) {
+                @media (min-width: 991px) and (max-width: 1200px) {
+                    grid-area: 2 / 2 / auto / span 1;
+                }
+            }
+
+            &:nth-child(3) {
+                @media (min-width: 991px) {
+                    grid-area: 2 / 1 / auto / span 1;
+                }
+
+                @media (min-width: 1201px) {
+                    grid-area: 1 / 1 / auto / span 1;
+                }
+            }
+        }
+    }
+
+    .footer-mapsite {
+        margin-bottom: 16px;
+
+        @media (min-width: 991px) {
+            margin-inline: auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        &__list {
+            @media (min-width:991px) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+            }
+        }
+
+        &__item {
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+
+        &__link {
+            color: #fff;
+            display: block;
+            font-size: 24px;
+        }
+    }
+
+    .footer-legal {
+        @media (min-width: 991px) {
+            margin-inline: auto;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        &__list {
+            @media (min-width:991px) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+            }
+        }
+
+        &__item {
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        &__link {
+            color: #fff;
+            display: block;
+            font-size: 12px;
+        }
+    }
+
+    .footer-payment {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 50px;
+
+        @media (min-width: 991px) {
+            margin-top: 40px;
+            margin-inline: auto;
+            max-width: max-content;
+
+        }
+
+        &__text {
+            color: #fff;
+            font-size: 12px;
+        }
+    }
+
+    .footer-brand {
+        display: grid;
+        gap: 30px;
+
+        @media (max-width:990px) {
+            margin-top: 40px;
+        }
+
+        @media (min-width:991px) {
+            max-width: 200px;
+        }
+
+        &__text {
+            color: #fff;
+            font-size: 12px;
+        }
+    }
+
+    .newsletter {
+        @media (max-width:990px) {
+            margin-top: 40px;
+        }
+
+        @media (min-width:991px) {
+            margin-left: auto;
+            max-width: 220px;
+        }
+
+        &__field {
+            border: none;
+        }
+
+        &__label {
+            color: #fff;
+            display: block;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        &__input {
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            height: 40px;
+
+            input {
+                border: none;
+                background-color: variables.color(primary, 900);
+                color: #9CA3AF;
+                font-size: 14px;
+                padding: 15px;
+                height: 100%;
+                width: 100%;
+            }
+
+            img {
+                top: 0;
+                bottom: 0;
+                right: 10px;
+                margin: auto;
+                position: absolute;
+            }
+        }
+    }
+
+    .social-networks {
+        margin-top: 45px;
+
+        @media (max-width:990px) {
+            display: none;
+        }
+
+        &__list {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        &__item {
+            color: #fff;
+            font-size: 12px;
+        }
+    }
+}
