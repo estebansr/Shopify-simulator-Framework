@@ -7,6 +7,17 @@
         background-color: transparent;
     }
 
+    .button {
+        @extend %button;
+        background-color: variables.color(secondary, 500);
+        border-radius: 4px;
+        color: #fff;
+        font-family: variables.$font-countach;
+        font-size: 24px;
+        padding: 10px 35px;
+        text-transform: uppercase;
+    }
+
     .cart {
         @extend %button;
         background-color: variables.color(secondary, 500);

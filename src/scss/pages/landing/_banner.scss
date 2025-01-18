@@ -1,0 +1,36 @@
+@layer pages {
+    .banner {
+        &__container {
+            padding-top: 15px;
+            padding-bottom: 15px;
+
+            @media (min-width:991px) {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+        }
+
+        &__figure {
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        &__image {
+            object-fit: cover;
+            height: auto;
+            min-height: 450px;
+        }
+
+        &__button {
+            position: absolute;
+            z-index: 1;
+            bottom: 30px;
+            left: 30px;
+
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
+    }
+}

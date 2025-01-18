@@ -2,8 +2,9 @@
 @use "layout";
 @use "variables";
 @use "components";
+@use "pages";
 
-@layer reset, components, layout;
+@layer reset, components, pages, layout;
 
 @layer reset {
     body {
