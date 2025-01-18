@@ -1,10 +1,12 @@
+@use "../../variables";
+
 @layer pages {
     .banner {
         &__container {
             padding-top: 15px;
             padding-bottom: 15px;
 
-            @media (min-width:991px) {
+            @include variables.respond-to(lg, min) {
                 padding-top: 20px;
                 padding-bottom: 20px;
             }
@@ -28,7 +30,7 @@
             bottom: 30px;
             left: 30px;
 
-            @media (max-width: 767px) {
+            @include variables.respond-to(md, max) {
                 display: none;
             }
         }

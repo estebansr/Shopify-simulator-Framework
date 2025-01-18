@@ -1,0 +1,30 @@
+@use "breakpoints" as *;
+@use "sass:map";
+
+@mixin respond-to($breakpoint, $type: min) {
+
+    $size: map.get($breakpoints, $breakpoint);
+
+    @if $size {
+        @if $type ==min {
+            @media (min-width: $size) {
+                @content;
+            }
+        }
+
+        @else if $type ==max {
+            $prev-size: $size - 1;
+            @media (max-width: $prev-size) {
+                @content;
+            }
+        }
+
+        @else {
+            @warn "No previous breakpoint found for '#{$breakpoint}'.";
+        }
+    }
+
+    @else {
+        @warn "Invalid type '#{$type}'. Use 'min' or 'max'.";
+    }
+}

@@ -1,3 +1,5 @@
+@use "../../variables";
+
 @layer pages {
     .featured-products {
         &__list {
@@ -6,13 +8,13 @@
             gap: 20px;
             justify-items: center;
 
-            @media (max-width: 990px) {
+            @include variables.respond-to(lg, max) {
                 display: flex;
                 scroll-snap-type: x mandatory;
                 overflow: auto;
             }
 
-            @media (min-width: 991px) {
+            @include variables.respond-to(lg, min) {
                 padding-top: 20px;
                 padding-bottom: 25px;
                 display: grid;

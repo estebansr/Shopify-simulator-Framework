@@ -6,13 +6,13 @@
             padding-top: 15px;
             padding-bottom: 15px;
 
-            @media (min-width:991px) {
+            @include variables.respond-to(lg, min) {
                 display: grid;
                 align-items: center;
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            @media (min-width: 1201px) {
+            @include variables.respond-to(xl, min) {
                 grid-template-columns: 1fr 3fr 1fr;
                 gap: 30px;
                 padding-top: 20px;
@@ -22,11 +22,11 @@
 
         &__section {
             &:nth-child(1) {
-                @media (min-width: 991px) {
+                @include variables.respond-to(lg, min) {
                     grid-area: auto / 1 / auto / span 2;
                 }
 
-                @media (min-width: 1201px) {
+                @include variables.respond-to(xl, min) {
                     grid-area: auto / 2 / auto / span 1;
                 }
             }
@@ -37,23 +37,23 @@
                 }
 
                 .social-networks {
-                    @media (max-width:990px) {
+                    @include variables.respond-to(lg, max) {
                         display: none;
                     }
                 }
             }
 
             &:nth-child(3) {
-                @media (min-width: 991px) {
+                @include variables.respond-to(lg, min) {
                     grid-area: 2 / 1 / auto / span 1;
                 }
 
-                @media (min-width: 1201px) {
+                @include variables.respond-to(xl, min) {
                     grid-area: 1 / 1 / auto / span 1;
                 }
 
                 .social-networks {
-                    @media (min-width:991px) {
+                    @include variables.respond-to(lg, min) {
                         display: none;
                     }
                 }
@@ -64,14 +64,14 @@
     .footer-mapsite {
         margin-bottom: 16px;
 
-        @media (min-width: 991px) {
+        @include variables.respond-to(lg, min) {
             margin-inline: auto;
             max-width: 600px;
             text-align: center;
         }
 
         &__list {
-            @media (min-width:991px) {
+            @include variables.respond-to(lg, min) {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -92,14 +92,14 @@
     }
 
     .footer-legal {
-        @media (min-width: 991px) {
+        @include variables.respond-to(lg, min) {
             margin-inline: auto;
             text-align: center;
             max-width: 400px;
         }
 
         &__list {
-            @media (min-width:991px) {
+            @include variables.respond-to(lg, min) {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -125,7 +125,7 @@
         gap: 10px;
         margin-top: 50px;
 
-        @media (min-width: 991px) {
+        @include variables.respond-to(lg, min) {
             margin-top: 40px;
             margin-inline: auto;
             max-width: max-content;
@@ -139,7 +139,7 @@
     }
 
     .footer-brand {
-        @media (max-width:990px) {
+        @include variables.respond-to(lg, max) {
             display: grid;
             grid-template-columns: 2fr 1fr;
             align-items: center;
@@ -147,19 +147,19 @@
             margin-top: 40px;
         }
 
-        @media (min-width:991px) {
+        @include variables.respond-to(lg, min) {
             max-width: 200px;
         }
 
         &__section {
             &:nth-child(1) {
-                @media (min-width: 991px) {
+                @include variables.respond-to(lg, min) {
                     margin-bottom: 30px;
                 }
             }
 
             &:nth-child(3) {
-                @media (max-width: 990px) {
+                @include variables.respond-to(lg, max) {
                     grid-area: auto / 1 / auto / span 2;
                 }
             }
@@ -172,11 +172,11 @@
     }
 
     .newsletter {
-        @media (max-width:990px) {
+        @include variables.respond-to(lg, max) {
             margin-top: 40px;
         }
 
-        @media (min-width:991px) {
+        @include variables.respond-to(lg, min) {
             margin-left: auto;
             max-width: 220px;
         }
@@ -219,12 +219,12 @@
     }
 
     .social-networks {
-        @media (min-width:991px) {
+        @include variables.respond-to(lg, min) {
             margin-top: 45px;
         }
 
         &__list {
-            @media (min-width:991px) {
+            @include variables.respond-to(lg, min) {
                 display: flex;
                 justify-content: flex-end;
             }
@@ -240,7 +240,7 @@
             padding: 8px 0;
             text-align: end;
 
-            @media (min-width: 991px) {
+            @include variables.respond-to(lg, min) {
                 padding: 8px;
                 text-align: center;
             }
