@@ -104,11 +104,6 @@
     position: relative;
     z-index: 5;
   }
-  @media (min-width: 991px) {
-    .header {
-      height: 112px;
-    }
-  }
   .header--active::before {
     background-color: #762bfb;
   }
@@ -123,6 +118,15 @@
   }
   .header:not(.header--active) .header__dropdown {
     transform: translateX(-100%);
+  }
+  .header--intersected .header__fixed {
+    backdrop-filter: blur(10px);
+    background-color: rgba(115, 115, 115, 0.5);
+  }
+  @media (min-width: 991px) {
+    .header {
+      height: 112px;
+    }
   }
   @media (max-width: 990px) {
     .header::before {

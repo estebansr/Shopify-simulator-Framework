@@ -6,10 +6,6 @@
         position: relative;
         z-index: 5;
 
-        @include variables.respond-to(lg, min) {
-            height: 112px;
-        }
-
         &--active::before {
             background-color: variables.color(secondary, 500);
         }
@@ -32,6 +28,15 @@
 
         &:not(&--active) &__dropdown {
             transform: translateX(-100%);
+        }
+
+        &--intersected &__fixed {
+            backdrop-filter: blur(10px);
+            background-color: rgba(variables.color(primary, 500), .5);
+        }
+
+        @include variables.respond-to(lg, min) {
+            height: 112px;
         }
 
         @include variables.respond-to(lg, max) {

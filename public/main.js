@@ -26,7 +26,27 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/main.scss */ \"./src/scss/main.scss\");\n\r\nconsole.log('Gradiweb is online!!!');\r\n\n\n//# sourceURL=webpack://shopify-simulator/./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/main.scss */ \"./src/scss/main.scss\");\n/* harmony import */ var _js_modules_headerModule_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/modules/headerModule.js */ \"./src/js/modules/headerModule.js\");\n\r\n\r\n\r\ndocument.addEventListener('DOMContentLoaded', () => {\r\n    console.log('Gradiweb is online!!!');\r\n    \r\n    new _js_modules_headerModule_js__WEBPACK_IMPORTED_MODULE_1__.HeaderCollapse('#header-page', {\r\n        activeClass: 'header--active',\r\n        toggler: '#header-toggler'\r\n    });\r\n})\n\n//# sourceURL=webpack://shopify-simulator/./src/app.js?");
+
+/***/ }),
+
+/***/ "./src/js/modules/headerModule.js":
+/*!****************************************!*\
+  !*** ./src/js/modules/headerModule.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   HeaderCollapse: () => (/* binding */ HeaderCollapse)\n/* harmony export */ });\n/* harmony import */ var _utils_dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/dom.js */ \"./src/js/utils/dom.js\");\n\r\n\r\nclass HeaderCollapse extends _utils_dom_js__WEBPACK_IMPORTED_MODULE_0__.DOM {\r\n    menu;\r\n    config;\r\n    isCollapsed;\r\n\r\n    constructor(target, config) {\r\n        super();\r\n\r\n        this.menu = this.getTarget(target);\r\n\r\n        this.config = { activeClass: 'active', ...config };\r\n        this.isCollapsed = false;\r\n\r\n        if (!config.toggler) return;\r\n        const togglerTarget = this.getTarget(config.toggler);\r\n\r\n        togglerTarget.addEventListener('click', () => {\r\n            if (this.isCollapsed) this.close();\r\n            else this.open();\r\n        })\r\n    }\r\n\r\n    open() {\r\n        if (!this.menu) return;\r\n        this.isCollapsed = true;\r\n        this.menu.classList.add(this.config.activeClass);\r\n    }\r\n\r\n    close() {\r\n        if (!this.menu) return;\r\n        this.isCollapsed = false;\r\n        this.menu.classList.remove(this.config.activeClass);\r\n    }\r\n}\n\n//# sourceURL=webpack://shopify-simulator/./src/js/modules/headerModule.js?");
+
+/***/ }),
+
+/***/ "./src/js/utils/dom.js":
+/*!*****************************!*\
+  !*** ./src/js/utils/dom.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   DOM: () => (/* binding */ DOM)\n/* harmony export */ });\nclass DOM {\r\n    getTarget(target) {\r\n        return typeof target === 'string'\r\n            ? document.querySelector(target)\r\n            : target;\r\n    }\r\n}\n\n//# sourceURL=webpack://shopify-simulator/./src/js/utils/dom.js?");
 
 /***/ })
 
@@ -57,6 +77,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scs
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
