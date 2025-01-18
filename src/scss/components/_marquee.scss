@@ -1,0 +1,47 @@
+@use "../variables";
+
+@layer components {
+    .marquee {
+        &__container {
+            display: flex;
+            overflow: hidden;
+            padding: 8px;
+            gap: 10px;
+
+            @media (min-width:991px) {
+                gap: 20px;
+            }
+        }
+
+        &__item {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 80px auto;
+            gap: 10px;
+
+            @media (min-width:991px) {
+                grid-template-columns: 60px auto;
+                gap: 20px;
+            }
+        }
+
+        &__icon {
+            @media (min-width: 991px) {
+                height: 60px;
+                width: 60px;
+            }
+        }
+
+        &__text {
+            color: #fff;
+            font-family: variables.$font-countach;
+            font-size: 56px;
+            line-height: 1;
+            white-space: nowrap;
+
+            @media (min-width: 991px) {
+                font-size: 86px;
+            }
+        }
+    }
+}
