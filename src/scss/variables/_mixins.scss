@@ -1,4 +1,5 @@
 @use "breakpoints" as *;
+@use "spacing" as *;
 @use "sass:map";
 
 @mixin respond-to($breakpoint, $type: min) {
@@ -14,6 +15,7 @@
 
         @else if $type ==max {
             $prev-size: $size - 1;
+
             @media (max-width: $prev-size) {
                 @content;
             }
@@ -26,5 +28,43 @@
 
     @else {
         @warn "Invalid type '#{$type}'. Use 'min' or 'max'.";
+    }
+}
+
+@mixin flex($inline: false, $direction: null, $justify: null, $align: null, $wrap: null) {
+    @if $inline {
+        display: inline-flex;
+    }
+
+    @else {
+        display: flex;
+    }
+
+    @if $direction {
+        flex-direction: $direction;
+    }
+
+    @if $justify {
+        justify-content: $justify;
+    }
+
+    @if $align {
+        align-items: $align;
+    }
+
+    @if $wrap {
+        flex-wrap: $wrap;
+    }
+}
+
+@mixin spacing($property, $size) {
+    $value: map.get($spacing-scale, $size);
+
+    @if $value !=null {
+        #{$property}: $value;
+    }
+
+    @else {
+        @warn "El tamaño '#{$size}' no está definido en la escala de espaciado.";
     }
 }

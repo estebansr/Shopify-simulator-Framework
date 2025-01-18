@@ -29,9 +29,7 @@
             padding: 0;
             width: 40px;
             height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include variables.flex($align: center, $justify: center);
         }
 
         &__icon {

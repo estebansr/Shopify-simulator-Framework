@@ -1,13 +1,23 @@
 @use "../variables";
 
-@layer layout {
+@layer utils {
     .container-limit {
         max-width: 1400px;
         margin: 0 auto;
-        padding-inline: 15px;
+        @include variables.spacing(padding, md);
 
         @include variables.respond-to(lg, min) {
-            padding-inline: 30px;
+            @include variables.spacing(padding, xl);
+        }
+    }
+
+    .container-limit-x {
+        max-width: 1400px;
+        margin: 0 auto;
+        @include variables.spacing(padding-inline, md);
+
+        @include variables.respond-to(lg, min) {
+            @include variables.spacing(padding-inline, xl);
         }
     }
 }

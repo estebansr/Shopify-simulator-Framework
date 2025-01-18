@@ -34,17 +34,19 @@
             transform: translateX(-100%);
         }
 
-        &::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            z-index: -1;
-            pointer-events: none;
+        @include variables.respond-to(lg, max) {
+            &::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                z-index: -1;
+                pointer-events: none;
 
-            transition: background-color 0.5s;
+                transition: background-color 0.5s;
+            }
         }
 
         &__container {
@@ -53,11 +55,9 @@
         }
 
         &__fixed {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 15px;
-            padding-bottom: 15px;
+            @include variables.flex($align: center, $justify: space-between);
+            @include variables.spacing(padding-top, md);
+            @include variables.spacing(padding-bottom, md);
             width: 100%;
 
             @include variables.respond-to(lg, min) {
@@ -67,8 +67,7 @@
         }
 
         &__section {
-            display: flex;
-            align-items: center;
+            @include variables.flex($align: center);
 
             &:nth-child(1) {
                 gap: 10px;
@@ -104,7 +103,6 @@
         &__dropdown {
             display: grid;
             grid-template-rows: 1fr auto;
-            padding: 15px;
             justify-content: center;
             width: 100%;
 
@@ -121,13 +119,12 @@
     }
 
     .header-payment {
-        align-items: center;
         background-color: #151515;
         border-radius: 30px;
         border: 1px solid variables.color(secondary, 500);
-        display: flex;
         gap: 10px;
         padding: 10px 20px;
+        @include variables.flex($align: center);
 
         &__text {
             color: #fff;
@@ -136,13 +133,10 @@
     }
 
     .header-anchor {
-        margin-right: 10px;
+        @include variables.spacing(margin-right, sm);
 
         @include variables.respond-to(lg, max) {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
+            @include variables.flex($align: center, $justify: center);
         }
 
         &__list {
@@ -170,16 +164,15 @@
         background-color: #151515;
         border-radius: 10px;
         display: none;
-        flex-direction: column;
         gap: 10px;
-        padding: 10px;
+        @include variables.spacing(padding, sm);
         position: absolute;
         top: 100%;
         right: 0;
         z-index: 1;
 
         @include variables.respond-to(lg, max) {
-            display: flex;
+            @include variables.flex($align: center, $direction: column);
         }
 
         &__link {

@@ -3,12 +3,9 @@
 @layer pages {
     .banner {
         &__container {
-            padding-top: 15px;
-            padding-bottom: 15px;
-
             @include variables.respond-to(lg, min) {
-                padding-top: 20px;
-                padding-bottom: 20px;
+                @include variables.spacing(padding-top, lg);
+                @include variables.spacing(padding-bottom, lg);
             }
         }
 

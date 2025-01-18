@@ -7,8 +7,8 @@
         &__container {
             display: flex;
             overflow: hidden;
-            padding: 8px;
             gap: 10px;
+            @include variables.spacing(padding, sm);
         }
 
         &__item {
