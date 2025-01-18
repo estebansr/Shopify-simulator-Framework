@@ -1,0 +1,27 @@
+@use "../variables";
+
+@layer components {
+    .top-bar {
+        background-color: variables.color(secondary, 500);
+
+        &__container {
+            display: flex;
+            overflow: hidden;
+            padding: 8px;
+            gap: 10px;
+        }
+
+        &__item {
+            display: grid;
+            grid-template-columns: 17px auto;
+            gap: 10px;
+        }
+
+        &__text {
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+    }
+}

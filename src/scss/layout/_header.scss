@@ -2,12 +2,12 @@
 
 @layer layout {
     .header {
-        height: 72px;
+        height: 106px;
         position: relative;
         z-index: 0;
 
         @media (min-width:991px) {
-            height: 78px;
+            height: 112px;
         }
 
         &--active::before {
@@ -50,11 +50,6 @@
         &__container {
             position: fixed;
             width: 100%;
-
-            @media (max-width: 990px) {
-                display: grid;
-                grid-template-rows: auto 1fr;
-            }
         }
 
         &__fixed {

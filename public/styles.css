@@ -90,13 +90,13 @@
 }
 @layer layout {
   .header {
-    height: 72px;
+    height: 106px;
     position: relative;
     z-index: 0;
   }
   @media (min-width: 991px) {
     .header {
-      height: 78px;
+      height: 112px;
     }
   }
   .header--active::before {
@@ -128,12 +128,6 @@
   .header__container {
     position: fixed;
     width: 100%;
-  }
-  @media (max-width: 990px) {
-    .header__container {
-      display: grid;
-      grid-template-rows: auto 1fr;
-    }
   }
   .header__fixed {
     display: flex;
@@ -511,6 +505,28 @@
   }
   .payment-list__image {
     max-width: none;
+  }
+}
+@layer components {
+  .top-bar {
+    background-color: #762bfb;
+  }
+  .top-bar__container {
+    display: flex;
+    overflow: hidden;
+    padding: 8px;
+    gap: 10px;
+  }
+  .top-bar__item {
+    display: grid;
+    grid-template-columns: 17px auto;
+    gap: 10px;
+  }
+  .top-bar__text {
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
   }
 }
 @layer reset, components, layout;
