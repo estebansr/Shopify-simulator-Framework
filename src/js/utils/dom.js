@@ -4,4 +4,10 @@ export class DOM {
             ? document.querySelector(target)
             : target;
     }
+
+    getAllTargets(target) {
+        return typeof target === 'string'
+            ? document.querySelectorAll(target)
+            : target;
+    }
 }

@@ -1,9 +1,13 @@
 <section class="featured-products">
   <div class="featured-products__container">
-    <div class="featured-products__list container-limit">
+    <div id="featured-products" class="featured-products__list container-limit">
       {% for product in products %}
-      {% render 'product-card', product: product %}
+      {% assign visible = forloop.index > 4 %}
+      {% render 'product-card', product: product, hidden: visible %}
       {% endfor %}
     </div>
+    {% if products.size > 4 %}
+      <button id="more-products" class="button featured-products__button" data-hide="Hide all" data-show="View all">View all</button>
+    {% endif %}
   </div>
 </section>

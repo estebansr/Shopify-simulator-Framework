@@ -76,7 +76,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/main.scss */ \"./src/scss/main.scss\");\n/* harmony import */ var _js_modules_headerModule_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/modules/headerModule.js */ \"./src/js/modules/headerModule.js\");\n\r\n\r\n\r\ndocument.addEventListener('DOMContentLoaded', () => {\r\n    console.log('Gradiweb is online!!!');\r\n\r\n    new _js_modules_headerModule_js__WEBPACK_IMPORTED_MODULE_1__.HeaderModule('#header-page', {\r\n        activeClass: 'header--active',\r\n        toggler: '#header-toggler',\r\n    });\r\n})\n\n//# sourceURL=webpack://shopify-simulator/./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/main.scss */ \"./src/scss/main.scss\");\n/* harmony import */ var _js_modules_headerModule_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/modules/headerModule.js */ \"./src/js/modules/headerModule.js\");\n/* harmony import */ var _js_modules_moreButtonModule_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/modules/moreButtonModule.js */ \"./src/js/modules/moreButtonModule.js\");\n\r\n\r\n\r\n\r\ndocument.addEventListener('DOMContentLoaded', () => {\r\n    console.log('Gradiweb is online!!!');\r\n\r\n    new _js_modules_headerModule_js__WEBPACK_IMPORTED_MODULE_1__.HeaderModule('#header-page', {\r\n        activeClass: 'header--active',\r\n        toggler: '#header-toggler',\r\n    });\r\n\r\n    new _js_modules_moreButtonModule_js__WEBPACK_IMPORTED_MODULE_2__.MoreButtonModule('#more-products', {\r\n        listWrapper: '#featured-products',\r\n        listItems: '.product-card',\r\n        hideClass: 'product-card--hidden',\r\n        itemsToShow: 'all',\r\n    })\r\n})\n\n//# sourceURL=webpack://shopify-simulator/./src/app.js?");
 
 /***/ }),
 
@@ -90,13 +90,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/js/modules/moreButtonModule.js":
+/*!********************************************!*\
+  !*** ./src/js/modules/moreButtonModule.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   MoreButtonModule: () => (/* binding */ MoreButtonModule)\n/* harmony export */ });\n/* harmony import */ var _utils_dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/dom.js */ \"./src/js/utils/dom.js\");\n\r\n\r\nclass MoreButtonModule extends _utils_dom_js__WEBPACK_IMPORTED_MODULE_0__.DOM {\r\n    button;\r\n    config;\r\n    isVisible;\r\n    initialVisible;\r\n\r\n    constructor(target, config) {\r\n        super();\r\n\r\n        this.button = this.getTarget(target);\r\n        this.config = config;\r\n        this.isVisible = false;\r\n        this.initialVisible = [...this.getAllTargets(`${config.listWrapper} ${config.listItems}:not(.${config.hideClass})`)].length;\r\n\r\n        this.button.addEventListener('click', () => {\r\n            if (this.isVisible) this.hide();\r\n            else this.show();\r\n        })\r\n    }\r\n\r\n    show() {\r\n        const hiddenItems = [...this.getAllTargets(`${this.config.listWrapper} .${this.config.hideClass}`)];\r\n\r\n        if (this.config.itemsToShow === 'all') {\r\n            hiddenItems.forEach((element, index) => {\r\n                element.classList.remove(this.config.hideClass);\r\n            });\r\n            this.button.innerHTML = this.button.getAttribute('data-hide');\r\n            this.isVisible = true;\r\n            return;\r\n        }\r\n\r\n        if (typeof this.config.itemsToShow === 'number') {\r\n            hiddenItems.slice(0, this.config.itemsToShow).forEach((element, index) => {\r\n                element.classList.remove(this.config.hideClass);\r\n            });\r\n            return;\r\n        }\r\n    }\r\n\r\n    hide() {\r\n        const allItems = [...this.getAllTargets(`${this.config.listWrapper} ${this.config.listItems}`)];\r\n        allItems.forEach((element, index) => {\r\n            if (index + 1 > this.initialVisible) {\r\n                element.classList.add(this.config.hideClass);\r\n                this.isVisible = false;\r\n                this.button.innerHTML = this.button.getAttribute('data-show');\r\n            }\r\n        })\r\n    }\r\n}\n\n//# sourceURL=webpack://shopify-simulator/./src/js/modules/moreButtonModule.js?");
+
+/***/ }),
+
 /***/ "./src/js/utils/dom.js":
 /*!*****************************!*\
   !*** ./src/js/utils/dom.js ***!
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   DOM: () => (/* binding */ DOM)\n/* harmony export */ });\nclass DOM {\r\n    getTarget(target) {\r\n        return typeof target === 'string'\r\n            ? document.querySelector(target)\r\n            : target;\r\n    }\r\n}\n\n//# sourceURL=webpack://shopify-simulator/./src/js/utils/dom.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   DOM: () => (/* binding */ DOM)\n/* harmony export */ });\nclass DOM {\r\n    getTarget(target) {\r\n        return typeof target === 'string'\r\n            ? document.querySelector(target)\r\n            : target;\r\n    }\r\n\r\n    getAllTargets(target) {\r\n        return typeof target === 'string'\r\n            ? document.querySelectorAll(target)\r\n            : target;\r\n    }\r\n}\n\n//# sourceURL=webpack://shopify-simulator/./src/js/utils/dom.js?");
 
 /***/ })
 

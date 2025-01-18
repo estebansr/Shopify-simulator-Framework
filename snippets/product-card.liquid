@@ -1,7 +1,7 @@
-<div class="product-card">
+<div class="product-card{% if hidden %} product-card--hidden{% endif %}">
   <figure class="product-card__figure">
     <img class="product-card__image" src="/assets/{{product.image}}" alt="{{product.title}}" title="{{product.title}}"
-      width="300" height="400" loading="lazy">
+      width="280" height="380" loading="lazy">
   </figure>
   <article class="product-card__body">
     <h3 class="product-card__name">{{ product.title }}</h3>

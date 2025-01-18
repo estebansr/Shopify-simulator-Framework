@@ -7,6 +7,12 @@
         gap: 20px 10px;
         width: max-content;
 
+        &--hidden {
+            @include variables.respond-to(lg, min) {
+                display: none;
+            }
+        }
+
         &__figure {
             cursor: pointer;
             border: 3px solid variables.color(secondary, 500);
