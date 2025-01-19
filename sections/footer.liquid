@@ -20,7 +20,7 @@
                     {% assign text = link.label | downcase %}
                     {% if text contains 'terms' or text contains 'policy' %}
                     <li class="footer-legal__item">
-                        <a class="footer-legal__link" href="">{{link.label | upcase}}</a>
+                        <a class="footer-legal__link" href="{{link.url}}">{{link.label | upcase}}</a>
                     </li>
                     {% endif %}
                     {% endfor %}

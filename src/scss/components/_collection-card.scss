@@ -1,0 +1,38 @@
+@use "../variables";
+
+@layer components {
+    .collection-card {
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        height: 350px;
+        z-index: 0;
+
+        &:nth-child(3) {
+            height: 400px;
+
+            @include variables.respond-to(lg, min) {
+                height: 500px;
+            }
+        }
+
+        &__image {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            z-index: -2;
+            @include variables.position($top: 0, $left: 0);
+        }
+
+        &__name {
+            color: #fff;
+            font-size: 18px;
+            @include variables.spacing(padding, md);
+            @include variables.position($bottom: 0, $left: 0, $right: 0);
+
+            @include variables.respond-to(lg, min) {
+                font-size: 24px;
+            }
+        }
+    }
+}

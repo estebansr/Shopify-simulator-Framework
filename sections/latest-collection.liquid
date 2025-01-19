@@ -1,0 +1,12 @@
+<section class="latest-collection">
+  <div id="collections" class="anchor"></div>
+  <div class="latest-collection__container container-limit">
+    <span class="latest-collection__light"></span>
+    <h2 class="latest-collection__title">{{settings['collections'].settings.title | upcase}}</h2>
+    <ul class="latest-collection__list">
+      {% for collection in collections limit : 3 %}
+        {% render 'collection-card', collection: collection %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
