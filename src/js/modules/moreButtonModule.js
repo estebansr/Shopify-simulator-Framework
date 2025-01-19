@@ -1,11 +1,49 @@
+/**
+ * @file moreButtonModule.js
+ * @description This module handles the functionality of a "More" button that shows or hides additional list items.
+ * @module MoreButtonModule
+ */
+
 import { DOM } from "../utils/dom.js";
 
+/**
+ * Class representing the MoreButtonModule.
+ * @extends DOM
+ */
 export class MoreButtonModule extends DOM {
+    /**
+     * The button element that triggers the show/hide functionality.
+     * @type {HTMLElement}
+     */
     button;
+
+    /**
+     * Configuration object for the module.
+     * @type {Object}
+     */
     config;
+
+    /**
+     * Indicates whether the additional items are currently visible.
+     * @type {boolean}
+     */
     isVisible;
+
+    /**
+     * The initial number of visible items.
+     * @type {number}
+     */
     initialVisible;
 
+    /**
+     * Creates an instance of MoreButtonModule.
+     * @param {string|HTMLElement} target - The target button element or its selector.
+     * @param {Object} config - Configuration object for the module.
+     * @param {string} config.listWrapper - Selector for the list wrapper element.
+     * @param {string} config.listItems - Selector for the list items.
+     * @param {string} config.hideClass - Class name used to hide items.
+     * @param {string|number} config.itemsToShow - Number of items to show or 'all' to show all items.
+     */
     constructor(target, config) {
         super();
 
@@ -20,6 +58,9 @@ export class MoreButtonModule extends DOM {
         })
     }
 
+    /**
+     * Shows the hidden items based on the configuration.
+     */
     show() {
         const hiddenItems = [...this.getAllTargets(`${this.config.listWrapper} .${this.config.hideClass}`)];
 
@@ -36,6 +77,9 @@ export class MoreButtonModule extends DOM {
         console.warn('Params no support');
     }
 
+    /**
+     * Hides the items that exceed the initial visible count.
+     */
     hide() {
         const allItems = [...this.getAllTargets(`${this.config.listWrapper} ${this.config.listItems}`)];
         allItems.forEach((element, index) => {

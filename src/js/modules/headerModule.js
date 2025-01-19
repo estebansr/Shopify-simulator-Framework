@@ -1,12 +1,47 @@
+/**
+ * @file headerModule.js
+ * @description This module handles the header functionality including animations, toggling, and collapsing.
+ * @module HeaderModule
+ */
+
 import { DOM } from "../utils/dom.js";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 
+/**
+ * Class representing the HeaderModule.
+ * @extends DOM
+ */
 export class HeaderModule extends DOM {
+    /**
+     * The header element.
+     * @type {HTMLElement}
+     */
     header;
+
+    /**
+     * Configuration object for the header module.
+     * @type {Object}
+     */
     config;
+
+    /**
+     * Indicates whether the header is collapsed.
+     * @type {boolean}
+     */
     isCollapsed;
 
+    /**
+     * Create a HeaderModule.
+     * @param {string|HTMLElement} target - The target element or selector for the header.
+     * @param {Object} config - The configuration object.
+     * @param {string} [config.activeClass='active'] - The class to add when the header is active.
+     * @param {string} [config.toggler] - The selector for the toggler element.
+     * @param {string} [config.itemClass] - The class for items that close the header when clicked.
+     * @param {Object} [config.on] - The event handlers.
+     * @param {Function} [config.on.open] - The function to call when the header is opened.
+     * @param {Function} [config.on.close] - The function to call when the header is closed.
+     */
     constructor(target, config) {
         super();
 
@@ -30,6 +65,9 @@ export class HeaderModule extends DOM {
         });
     }
 
+    /**
+     * Initialize the header animation using GSAP and ScrollTrigger.
+     */
     animate() {
         gsap.registerPlugin(ScrollTrigger);
 
@@ -46,6 +84,9 @@ export class HeaderModule extends DOM {
         })
     }
 
+    /**
+     * Open the header.
+     */
     open() {
         if (!this.header) return;
         this.isCollapsed = true;
@@ -54,6 +95,10 @@ export class HeaderModule extends DOM {
         this.config.on?.open?.();
     }
 
+    /**
+     * Close the header.
+     * @returns {Promise<void>} A promise that resolves when the header is closed.
+     */
     async close() {
         if (!this.header) return;
         this.isCollapsed = false;
