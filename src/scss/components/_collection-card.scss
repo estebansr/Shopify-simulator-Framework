@@ -27,7 +27,7 @@
         &__name {
             color: #fff;
             font-size: 18px;
-            @include variables.spacing(padding, md);
+            @include variables.spacing(padding, lg);
             @include variables.position($bottom: 0, $left: 0, $right: 0);
 
             @include variables.respond-to(lg, min) {
