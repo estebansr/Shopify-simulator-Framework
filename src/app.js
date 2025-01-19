@@ -97,7 +97,7 @@ export class App extends DOM {
 
             const products = gsap.utils.toArray('.product-card');
             products.forEach(item => item.classList.remove('product-card--animated'));
-            gsap.set('.product-card', { opacity: 0 });
+            gsap.set('.product-card, .collection-card', { opacity: 0 });
             this.animateCards(isDesktop);
 
             gsap.from('.featured-products__button', {
@@ -106,6 +106,28 @@ export class App extends DOM {
                 ease: 'power2.in',
                 scrollTrigger: {
                     trigger: '.featured-products__button',
+                    start: 'center bottom'
+                }
+            })
+
+            ScrollTrigger.batch(`.collection-card`, {
+                start: '30% bottom',
+                trigger: '.collection-card',
+                onEnter: batch =>
+                    gsap.to(batch, {
+                        opacity: 1,
+                        stagger: 0.2,
+                        duration: 1,
+                        ease: 'power2.in',
+                    }),
+            });
+
+            gsap.from('.latest-collection__title', {
+                duration: 1,
+                opacity: 0,
+                ease: 'power2.in',
+                scrollTrigger: {
+                    trigger: '.latest-collection__title',
                     start: 'center bottom'
                 }
             })
