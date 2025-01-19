@@ -29,15 +29,11 @@ export class MoreButtonModule extends DOM {
             });
             this.button.innerHTML = this.button.getAttribute('data-hide');
             this.isVisible = true;
+            this.button.dispatchEvent(new CustomEvent('addedItems'));
             return;
         }
 
-        if (typeof this.config.itemsToShow === 'number') {
-            hiddenItems.slice(0, this.config.itemsToShow).forEach((element, index) => {
-                element.classList.remove(this.config.hideClass);
-            });
-            return;
-        }
+        console.warn('Params no support');
     }
 
     hide() {

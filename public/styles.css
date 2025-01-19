@@ -10,6 +10,9 @@
     margin: 0;
     padding: 0;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   html,
   body {
     height: 100%;
@@ -47,7 +50,8 @@
     text-decoration: none;
     color: inherit;
   }
-  ul, ol {
+  ul,
+  ol {
     list-style-type: none;
   }
   #root,
@@ -697,6 +701,7 @@
     border-radius: 4px;
     position: relative;
     overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
   .banner__image {
     object-fit: cover;
@@ -716,6 +721,17 @@
   }
 }
 @layer pages {
+  .featured-products {
+    position: relative;
+  }
+  .featured-products__anchor {
+    pointer-events: none;
+    transform: translateY(-150px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
   .featured-products__container {
     text-align: center;
   }

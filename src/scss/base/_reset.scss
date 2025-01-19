@@ -9,6 +9,10 @@
         padding: 0;
     }
 
+    html {
+        scroll-behavior: smooth;
+    }
+
     html,
     body {
         height: 100%;
@@ -52,7 +56,8 @@
         color: inherit;
     }
 
-    ul, ol {
+    ul,
+    ol {
         list-style-type: none;
     }
 

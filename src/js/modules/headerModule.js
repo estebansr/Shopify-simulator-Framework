@@ -23,6 +23,11 @@ export class HeaderModule extends DOM {
             if (this.isCollapsed) this.close();
             else this.open();
         })
+
+        this.header.addEventListener('click', (e) => {
+            const isItem = e.target.classList.contains(config.itemClass);
+            if (isItem) this.close();
+        });
     }
 
     animate() {
@@ -45,11 +50,15 @@ export class HeaderModule extends DOM {
         if (!this.header) return;
         this.isCollapsed = true;
         this.header.classList.add(this.config.activeClass);
+        document.body.style.overflow = 'hidden';
+        this.config.on?.open?.();
     }
 
-    close() {
+    async close() {
         if (!this.header) return;
         this.isCollapsed = false;
+        await this.config.on?.close?.();
         this.header.classList.remove(this.config.activeClass);
+        document.body.style.removeProperty('overflow');
     }
 }
