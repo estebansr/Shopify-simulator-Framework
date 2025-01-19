@@ -93,6 +93,7 @@ export class App extends DOM {
 
             const products = gsap.utils.toArray('.product-card');
             products.forEach(item => item.classList.remove('product-card--animated'));
+            gsap.set('.product-card', { opacity: 0 });
             this.animateCards(isDesktop);
 
             gsap.from('.featured-products__button', {
@@ -106,7 +107,7 @@ export class App extends DOM {
             })
 
             const button = this.getTarget('.featured-products__button');
-            button.addEventListener('addedItems', () => this.animateCards(isDesktop));
+            button.addEventListener('showItems', () => this.animateCards(isDesktop));
         })
     }
 
@@ -116,7 +117,6 @@ export class App extends DOM {
                 '.product-card--hidden, .product-card--animated'
                 : '.product-card--animated';
 
-        gsap.set('.product-card', { opacity: 0 });
         ScrollTrigger.batch(`.product-card:not(${className})`, {
             start: '30% bottom',
             trigger: '.product-card',

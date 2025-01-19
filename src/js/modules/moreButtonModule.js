@@ -29,7 +29,7 @@ export class MoreButtonModule extends DOM {
             });
             this.button.innerHTML = this.button.getAttribute('data-hide');
             this.isVisible = true;
-            this.button.dispatchEvent(new CustomEvent('addedItems'));
+            this.button.dispatchEvent(new CustomEvent('showItems'));
             return;
         }
 
@@ -45,5 +45,6 @@ export class MoreButtonModule extends DOM {
                 this.button.innerHTML = this.button.getAttribute('data-show');
             }
         })
+        this.button.dispatchEvent(new CustomEvent('hideItems'));
     }
 }
