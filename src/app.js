@@ -18,18 +18,22 @@ export class App extends DOM {
     }
 
     loadHeaderModule() {
-        const tl = gsap.timeline({ paused: true });
-        tl
-            .from(`.header-anchor__link`, {
-                opacity: 0,
-                duration: .5,
-                x: '-40px',
-                stagger: '0.2',
-            })
-            .from(`.header-payment`, {
-                opacity: 0,
-                ease: 'power2.in'
-            }, '<50%')
+        const tl = gsap.timeline({ paused: true }),
+            mm = gsap.matchMedia();
+
+        mm.add('(max-width:990px)', () => {
+            tl
+                .from(`.header-anchor__link`, {
+                    opacity: 0,
+                    duration: .5,
+                    x: '-40px',
+                    stagger: '0.2',
+                })
+                .from(`.header-payment`, {
+                    opacity: 0,
+                    ease: 'power2.in'
+                }, '<50%')
+        })
 
         new HeaderModule('#header-page', {
             activeClass: 'header--active',
