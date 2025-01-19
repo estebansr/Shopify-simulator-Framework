@@ -7,7 +7,7 @@
                     {% assign text = link.label | downcase %}
                     {% if not text contains 'terms' and not text contains 'policy' %}
                     <li class="footer-mapsite__item">
-                        <a class="footer-mapsite__link" href="">{{link.label | upcase}}</a>
+                        <a class="footer-mapsite__link{% if currentPath == link.url %} footer-mapsite__link--active{% endif %}" href="{{link.url}}">{{link.label | upcase}}</a>
                     </li>
                     {% endif %}
                     {% endfor %}
