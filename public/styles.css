@@ -517,6 +517,44 @@
   }
 }
 @layer components {
+  .title {
+    color: #fff;
+    font-family: "Countach", sans-serif;
+    font-size: 56px;
+    line-height: 1;
+    text-align: center;
+  }
+  @media (min-width: 991px) {
+    .title {
+      font-size: 86px;
+    }
+  }
+  .title--star {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 8px;
+    margin-inline: auto;
+    max-width: max-content;
+  }
+  @media (min-width: 991px) {
+    .title--star {
+      gap: 16px;
+    }
+  }
+  .title--star::before, .title--star::after {
+    content: "";
+    background: url(./assets/star.svg) center/100% 100% no-repeat;
+    display: block;
+    height: 100%;
+    width: 45px;
+  }
+  @media (min-width: 991px) {
+    .title--star::before, .title--star::after {
+      width: 60px;
+    }
+  }
+}
+@layer components {
   .cart, .button {
     cursor: pointer;
     border: none;
@@ -612,16 +650,7 @@
     }
   }
   .marquee__text {
-    color: #fff;
-    font-family: "Countach", sans-serif;
-    font-size: 56px;
-    line-height: 1;
     white-space: nowrap;
-  }
-  @media (min-width: 991px) {
-    .marquee__text {
-      font-size: 86px;
-    }
   }
 }
 @layer components {
@@ -687,11 +716,11 @@
     position: relative;
     border-radius: 4px;
     overflow: hidden;
-    height: 350px;
+    height: 400px;
     z-index: 0;
   }
   .collection-card:nth-child(3) {
-    height: 400px;
+    height: 450px;
   }
   @media (min-width: 991px) {
     .collection-card:nth-child(3) {
@@ -841,18 +870,8 @@
     }
   }
   .latest-collection__title {
-    color: #fff;
-    font-family: "Countach", sans-serif;
-    font-size: 56px;
-    line-height: 1;
-    text-align: center;
     margin-top: 32px;
     margin-bottom: 48px;
-  }
-  @media (min-width: 991px) {
-    .latest-collection__title {
-      font-size: 86px;
-    }
   }
   .latest-collection__list {
     display: grid;

@@ -1,0 +1,40 @@
+@use "../variables";
+
+@layer components {
+    .title {
+        color: #fff;
+        font-family: variables.$font-countach;
+        font-size: 56px;
+        line-height: 1;
+        text-align: center;
+
+        @include variables.respond-to(lg, min) {
+            font-size: 86px;
+        }
+
+        &--star {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 8px;
+            margin-inline: auto;
+            max-width: max-content;
+
+            @include variables.respond-to(lg, min) {
+                gap: 16px;
+            }
+
+            &::before,
+            &::after {
+                content: "";
+                background: url(./assets/star.svg) center/100% 100% no-repeat;
+                display: block;
+                height: 100%;
+                width: 45px;
+
+                @include variables.respond-to(lg, min) {
+                    width: 60px;
+                }
+            }
+        }
+    }
+}

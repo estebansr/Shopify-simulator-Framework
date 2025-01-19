@@ -23,18 +23,8 @@
         }
 
         &__title {
-            color: #fff;
-            font-family: variables.$font-countach;
-            font-size: 56px;
-            line-height: 1;
-
-            text-align: center;
             @include variables.spacing(margin-top, xl);
             @include variables.spacing(margin-bottom, xxl);
-
-            @include variables.respond-to(lg, min) {
-                font-size: 86px;
-            }
         }
 
         &__list {

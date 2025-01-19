@@ -5,11 +5,11 @@
         position: relative;
         border-radius: 4px;
         overflow: hidden;
-        height: 350px;
+        height: 400px;
         z-index: 0;
 
         &:nth-child(3) {
-            height: 400px;
+            height: 450px;
 
             @include variables.respond-to(lg, min) {
                 height: 500px;
