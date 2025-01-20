@@ -1,6 +1,8 @@
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 
+import { animateHeader, animateBanner, animateDefault, animateFeaturedCards, animateCollectionCards } from './js/utils/animations.js';
+
 import { DOM } from "./js/utils/dom.js";
 import { HeaderModule } from './js/modules/headerModule.js';
 import { ListModule } from './js/modules/listModule.js';
@@ -13,27 +15,12 @@ export class App extends DOM {
 
     init() {
         this.loadHeaderModule();
-        this.loadMoreButtonModule();
-        this.loadAnimations();
+        this.loadListModule();
+        this.loadScrolledAnimations();
     }
 
     loadHeaderModule() {
-        const tl = gsap.timeline({ paused: true }),
-            mm = gsap.matchMedia();
-
-        mm.add('(max-width:990px)', () => {
-            tl
-                .from(`.header-anchor__link`, {
-                    opacity: 0,
-                    duration: .5,
-                    x: '-40px',
-                    stagger: '0.2',
-                })
-                .from(`.header-payment`, {
-                    opacity: 0,
-                    ease: 'power2.in'
-                }, '<50%')
-        })
+        const tl = animateHeader();
 
         new HeaderModule('#header-page', {
             activeClass: 'header--active',
@@ -55,14 +42,14 @@ export class App extends DOM {
         });
     }
 
-    loadMoreButtonModule() {
+    loadListModule() {
         new ListModule('#featured-products', {
             hideClass: 'product-card--hidden',
             moreButton: '#more-products'
         })
     }
 
-    loadAnimations() {
+    loadScrolledAnimations() {
         const mm = gsap.matchMedia(),
             breakpoint = 991;
 
@@ -71,87 +58,24 @@ export class App extends DOM {
             isMobile: `(max-width: ${breakpoint - 1}px)`,
         }, (context) => {
             let { isDesktop, isMobile } = context.conditions;
-            const tl = gsap.timeline();
-            tl
-                .from(".banner__figure", {
-                    duration: 1,
-                    clipPath: "polygon(0 0, 0% 0, 0% 100%, 0% 100%)",
-                    ease: 'power2.inOut',
-                })
-                .from(".banner__button", {
-                    opacity: 0,
-                    ease: 'power1.in',
-                }, '<50%')
 
-            gsap.from('.marquee', {
-                duration: 1,
-                opacity: 0,
-                ease: 'power2.in',
-                scrollTrigger: {
-                    trigger: '.marquee',
-                    start: 'center bottom'
-                }
-            })
+            animateBanner();
+
+            animateDefault('.marquee');
 
             const products = gsap.utils.toArray('.product-card');
             products.forEach(item => item.classList.remove('product-card--animated'));
             gsap.set('.product-card, .collection-card', { opacity: 0 });
-            this.animateCards(isDesktop);
+            animateFeaturedCards(isDesktop);
 
-            gsap.from('.featured-products__button', {
-                duration: 1,
-                opacity: 0,
-                ease: 'power2.in',
-                scrollTrigger: {
-                    trigger: '.featured-products__button',
-                    start: 'center bottom'
-                }
-            })
+            animateDefault('.featured-products__button');
 
-            ScrollTrigger.batch(`.collection-card`, {
-                start: '30% bottom',
-                trigger: '.collection-card',
-                onEnter: batch =>
-                    gsap.to(batch, {
-                        opacity: 1,
-                        stagger: 0.2,
-                        duration: 1,
-                        ease: 'power2.in',
-                    }),
-            });
+            animateCollectionCards();
 
-            gsap.from('.latest-collection__title', {
-                duration: 1,
-                opacity: 0,
-                ease: 'power2.in',
-                scrollTrigger: {
-                    trigger: '.latest-collection__title',
-                    start: 'center bottom'
-                }
-            })
+            animateDefault('.latest-collection__title');
 
             const button = this.getTarget('.featured-products__button');
-            button.addEventListener('showItems', () => this.animateCards(isDesktop));
+            button.addEventListener('showItems', () => animateFeaturedCards(isDesktop));
         })
-    }
-
-    animateCards(isDesktop) {
-        const className =
-            isDesktop ?
-                '.product-card--hidden, .product-card--animated'
-                : '.product-card--animated';
-
-        ScrollTrigger.batch(`.product-card:not(${className})`, {
-            start: '30% bottom',
-            trigger: '.product-card',
-            onEnter: batch =>
-                gsap.to(batch, {
-                    opacity: 1,
-                    stagger: 0.2,
-                    duration: 1,
-                    ease: 'power2.in',
-                    onComplete: () => batch.forEach(item => item.classList.add('product-card--animated')),
-                }),
-        });
     }
 }

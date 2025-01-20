@@ -368,7 +368,7 @@
   }
   .footer-mapsite__link {
     color: #fff;
-    display: block;
+    display: inline-block;
     font-size: 24px;
   }
   .footer-mapsite__link--active {
