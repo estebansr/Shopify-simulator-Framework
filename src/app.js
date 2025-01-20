@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 
 import { DOM } from "./js/utils/dom.js";
 import { HeaderModule } from './js/modules/headerModule.js';
-import { MoreButtonModule } from './js/modules/moreButtonModule.js';
+import { ListModule } from './js/modules/listModule.js';
 
 export class App extends DOM {
     constructor() {
@@ -56,11 +56,9 @@ export class App extends DOM {
     }
 
     loadMoreButtonModule() {
-        new MoreButtonModule('#more-products', {
-            listWrapper: '#featured-products',
-            listItems: '.product-card',
+        new ListModule('#featured-products', {
             hideClass: 'product-card--hidden',
-            itemsToShow: 'all',
+            moreButton: '#more-products'
         })
     }
 
